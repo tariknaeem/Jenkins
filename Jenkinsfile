@@ -3,7 +3,11 @@ pipeline{
   stages{
     stage('Checkout'){
       steps{
-        echo "pull github codes"
+        retry(3){
+          echo "pull github codes"
+          error "Error in Retry"
+        }
+        echo "after retry(3)"
       }
     }
   }
