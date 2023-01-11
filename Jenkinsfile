@@ -1,28 +1,18 @@
-/* groovylint-disable GStringExpressionWithinString, UnnecessaryGString */
-/* groovylint-disable-next-line CompileStatic */
+/* groovylint-disable CompileStatic */
 pipeline {
     agent any
-    environment {
-        name1 = "Jeff"
-        name2 = "Mark"
-    }
     stages {
-        stage("Checkout") {
+        stage("Env check") {
             environment {
-                name3 = "Michelle"
+                SOME_USERNAME_PASSWORD = credentials('some-username-password')
+                SOME_SECRET = credentials('some-secret')
             }
             steps {
-                echo "name1 is ${name1}"
-                echo "name2 is ${name2}"
-                echo "name3 is ${name3}"
+                echo "SOME_USERNAME_PASSWORD ${SOME_USERNAME_PASSWORD}"
+                echo "SOME_USERNAME_PASSWORD ${SOME_USERNAME_PASSWORD_USR}"
+                echo "SOME_USERNAME_PASSWORD ${SOME_USERNAME_PSW}"
+                echo "SOME_SECRET ${SOME_SECRET}"
             }
-        }
-        stage("Test") {
-                steps {
-                    echo "name1 is ${name1}"
-                    echo "name2 is ${name2}"
-                    sh "printenv"
-                }
         }
     }
 }
