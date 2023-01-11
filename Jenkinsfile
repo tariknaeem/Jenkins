@@ -1,4 +1,4 @@
-/* groovylint-disable GStringExpressionWithinString */
+/* groovylint-disable GStringExpressionWithinString, UnnecessaryGString */
 /* groovylint-disable-next-line CompileStatic */
 pipeline {
     agent any
