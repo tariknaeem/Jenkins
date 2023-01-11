@@ -2,12 +2,13 @@ pipeline{
   agent any
   stages{
     stage('Checkout'){
+      agent any
+      options{
+        skipDefaultCheckout()
+      }
       steps{
-        retry(3){
-          echo "pull github codes"
-          error "Error in Retry"
-        }
-        echo "after retry(3)"
+          echo "Hello World"
+
       }
     }
   }
