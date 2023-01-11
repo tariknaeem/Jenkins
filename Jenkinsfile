@@ -1,15 +1,15 @@
 pipeline {
     agent any
     environment {
-        SOME_NAME = "uat"
+        test = "uat"
     }
     stages {
-        stage("When Test with equals") {
+        stage("test") {
             when {
-                equals expected: "uat", actual: SOME_NAME
+                branch "main"
             }
         steps {
-            echo "${SOME_NAME}"
+            echo "run code"
         }
         }
     }
