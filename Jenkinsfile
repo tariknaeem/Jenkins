@@ -6,7 +6,7 @@ pipeline {
     stages {
         stage("When Test with equals") {
             when {
-                equals expected: "uat" actual: SOME_NAME
+                equals expected: "uat", actual: SOME_NAME
             }
         steps {
             echo "${SOME_NAME}"
