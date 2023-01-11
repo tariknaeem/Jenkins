@@ -1,17 +1,18 @@
-/* groovylint-disable CompileStatic */
+
+/* groovylint-disable-next-line CompileStatic */
 pipeline {
     agent any
+    environment {
+        DEPLOY_TO = "production"
+    }
     stages {
-        stage("Env check") {
-            environment {
-                SOME_USERNAME_PASSWORD = credentials('some-username-password')
-                SOME_SECRET = credentials('some-secret')
+        stage("Test") {
+            when {
+                /* groovylint-disable-next-line DuplicateStringLiteral */
+                environment name: "DEPLOY_TO", value: "production"
             }
             steps {
-                echo "SOME_USERNAME_PASSWORD ${SOME_USERNAME_PASSWORD}"
-                echo "SOME_USERNAME_PASSWORD ${SOME_USERNAME_PASSWORD_USR}"
-                echo "SOME_USERNAME_PASSWORD ${SOME_USERNAME_PASSWORD_PSW}"
-                echo "SOME_SECRET ${SOME_SECRET}"
+                echo "Deploying to ${DEPLOY_TO}"
             }
         }
     }
