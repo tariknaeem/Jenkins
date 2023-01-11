@@ -16,13 +16,13 @@ pipeline {
                 echo "name2 is ${name2}"
                 echo "name3 is ${name3}"
             }
-            stage("Test") {
+        }
+        stage("Test") {
                 steps {
                     echo "name1 is ${name1}"
                     echo "name2 is ${name2}"
                     echo "name3 is ${name3}"
                 }
-            }
         }
     }
 }
