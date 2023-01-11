@@ -1,19 +1,16 @@
-
-/* groovylint-disable-next-line CompileStatic */
 pipeline {
     agent any
     environment {
-        DEPLOY_TO = "uat"
+        SOME_NAME = "uat"
     }
     stages {
-        stage("Test") {
+        stage("When Test with equals") {
             when {
-                /* groovylint-disable-next-line DuplicateStringLiteral */
-                environment name: "DEPLOY_TO", value: "production"
+                equals expected: "uat" actual: SOME_NAME
             }
-            steps {
-                echo "Deploying to ${DEPLOY_TO}"
-            }
+        steps {
+            echo "${SOME_NAME}"
+        }
         }
     }
 }
