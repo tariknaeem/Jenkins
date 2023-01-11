@@ -3,7 +3,7 @@
 pipeline {
     agent any
     environment {
-        DEPLOY_TO = "production"
+        DEPLOY_TO = "uat"
     }
     stages {
         stage("Test") {
