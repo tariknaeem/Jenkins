@@ -1,12 +1,9 @@
 pipeline {
     agent any
-    environment {
-        test = "uat"
-    }
     stages {
-        stage("test") {
+        stage("checking ") {
             when {
-                branch "main"
+                branch 'main'
             }
         steps {
             echo "run code"
