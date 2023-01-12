@@ -5,7 +5,7 @@ pipeline {
         stage("checking ") {
             when {
                 not {
-                    branch 'main'
+                    branch 'origin/main'
                 }
              }
             steps {
