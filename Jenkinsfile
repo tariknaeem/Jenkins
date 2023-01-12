@@ -1,13 +1,16 @@
+/* groovylint-disable CompileStatic */
 pipeline {
     agent any
     stages {
         stage("checking ") {
             when {
-                branch 'main'
+                not {
+                    branch 'main'
+                }
+             }
+            steps {
+                echo "run code"
             }
-        steps {
-            echo "run code"
-        }
         }
     }
 }
